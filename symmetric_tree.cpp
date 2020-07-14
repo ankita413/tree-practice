@@ -78,3 +78,44 @@ int main()
 	cout<<is_Tree_Symmetric(root);
 	return 0;
 }
+// iterative approach
+/*
+bool isSymmetric(struct Node* root)
+{
+    if(root == NULL)
+    return true;
+	Node *root1 = root;
+	Node *root2 = root;
+	queue<Node*> q;
+
+	q.push(root1);
+	q.push(root2);
+	while(!q.empty())
+	{
+	    Node *temp1=q.front();
+	    q.pop();
+	    Node *temp2=q.front();
+	    q.pop();
+	 if(temp1->left ==NULL && temp2->right!=NULL)
+	    return false;
+	    else if(temp1 -> right ==NULL && temp2 -> left != NULL)
+	        return false;
+	 
+	    if(temp1->data!=temp2->data)
+	        return false;
+	       
+	        if(temp1->left!=NULL && temp2->right!=NULL)
+	            {
+	                q.push(temp1->left);
+	                q.push(temp2->right);
+	            }
+	          
+	            if(temp1->right!=NULL && temp2->left!=NULL)
+	            {
+	                q.push(temp1 -> right);
+	                q.push(temp2 -> left);
+	            }
+	          
+	}
+	return true;
+}
