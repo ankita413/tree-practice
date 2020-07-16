@@ -17,4 +17,15 @@ while(!q.empty())
         q.push(temp->right);
 }
 return sum;    
+} 
+// recursive approach Time complexity=O(n) 
+long int sumBT(Node* root)
+{
+if(root == NULL)
+    return 0;
+
+long int a = sumBT(root->left);
+long int b = sumBT(root ->right);
+return root ->key +a +b;
+    
 }
